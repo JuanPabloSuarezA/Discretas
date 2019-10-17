@@ -1,30 +1,33 @@
-package lab9;
 import java.util.Scanner;
 
 public class Lab9 {
 
     public static void main(String[] args) {
+        
+        
         Scanner tec=new Scanner(System.in);
-        String cad,subcadk;
+        String cad,subcadk; 
         int periodo,nCasos;
         Boolean kMin;                
         nCasos = Integer.valueOf(tec.nextLine());
         
         for (int i = 0; i < nCasos; i++) {
-            tec.skip("\n");           
+            tec.skip("\n"); //Se omiten los saltos de línea entre 2 entradas           
             cad = tec.nextLine();
-            kMin = false;
-            periodo = 0;
+            kMin = false; //Para cada caso se asume que no se ha encontrado el periodo mínimo
+            periodo = 0; //El periodo se reinicia para cada caso
             
-            while (!kMin && periodo < cad.length()) {                
-                periodo++;
-                subcadk = cad.substring(0, periodo);
+            while (!kMin && periodo < cad.length()) {     /*No se ha encontrado la subcadena minima 
+                                                        y se repite mientras el periodo sea menor 
+                                                        a la longitud de la cadena         */
+                periodo++; //Para cada vuelta el periodo aumenta 
+                subcadk = cad.substring(0, periodo); //Se obtiene la subcadena de la cual se  comprobará si la cadena se pueden formar repeticiones con esta
                 
-                if (cad.replace(subcadk, "").equals("")) {
+                if (cad.replace(subcadk, "").equals("")) { //Si al reemplazar todas las subcadenas, la cadena resulta en un espacio vacío se encontró la mínima
                     kMin = true;
                 }
             }             
-            System.out.println(periodo + "\n");            
+            System.out.println(periodo + "\n");   //Se imprime cada periodo mínimo agregando un salto de línea entre cada caso          
         }
     }   
 }
