@@ -27,7 +27,12 @@ public class Lab9 {
                     kMin = true;
                 }
             }             
+            
+            if (kMin == false) { //No se encontró una subcadena con longitud menor a la longitud de la cadena que formara la cadena con sus repeticiones
+                periodo = cad.length();
+            }
             System.out.println(periodo + "\n");   //Se imprime cada periodo mínimo agregando un salto de línea entre cada caso          
         }
     }   
 }
+
