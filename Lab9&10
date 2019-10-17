@@ -1,0 +1,30 @@
+package lab9;
+import java.util.Scanner;
+
+public class Lab9 {
+
+    public static void main(String[] args) {
+        Scanner tec=new Scanner(System.in);
+        String cad,subcadk;
+        int periodo,nCasos;
+        Boolean kMin;                
+        nCasos = Integer.valueOf(tec.nextLine());
+        
+        for (int i = 0; i < nCasos; i++) {
+            tec.skip("\n");           
+            cad = tec.nextLine();
+            kMin = false;
+            periodo = 0;
+            
+            while (!kMin && periodo < cad.length()) {                
+                periodo++;
+                subcadk = cad.substring(0, periodo);
+                
+                if (cad.replace(subcadk, "").equals("")) {
+                    kMin = true;
+                }
+            }             
+            System.out.println(periodo + "\n");            
+        }
+    }   
+}
